@@ -26,7 +26,8 @@ $(document).on('click', function(){
 });
 
 // Set the date we're counting down to (Reception - 19 Feb 2026)
-var countDownDate = new Date("Feb 19, 2026 19:00:00").getTime();
+var countDownDate = new Date("Feb 19, 2026 19:00:00 GMT+0530").getTime();
+
 
 // Update the count down every 1 second
 var x = setInterval(function() {
