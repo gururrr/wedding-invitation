@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation | Guru Raghavendra & Pooja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Dancing+Script:wght@500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #2a2520;
+      padding: 40px 24px 32px;
+    }
+
+    .poster-actions {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .poster-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #f5ebe0;
+      background: linear-gradient(145deg, #5c4a6e 0%, #4a3d5a 100%);
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .poster-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(92,74,110,0.4);
+    }
+
+    .poster-wrapper {
+      position: relative;
+    }
+
+    .poster {
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 3/4;
+      background: linear-gradient(180deg, #faf6f1 0%, #f5efe6 40%, #f0eae2 70%, #ebe8e4 100%);
+      border-radius: 2px;
+      padding: 0;
+      text-align: center;
+      color: #3d2c2a;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Ornate frame - archway style */
+    .poster-frame {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .frame-border {
+      position: absolute;
+      top: 16px; left: 16px; right: 16px; bottom: 16px;
+      border: 2px solid rgba(139, 105, 70, 0.45);
+      border-radius: 6px;
+      box-shadow: inset 0 0 0 1px rgba(212,175,140,0.2);
+    }
+
+    .frame-arch {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 88%;
+      height: 55px;
+      border: 2px solid rgba(139, 105, 70, 0.35);
+      border-bottom: none;
+      border-radius: 100px 100px 0 0;
+    }
+
+    .vine-side {
+      position: absolute;
+      top: 70px;
+      width: 50px;
+      height: 140px;
+      opacity: 0.6;
+      z-index: 1;
+    }
+    .vine-left { left: 12px; }
+    .vine-right { right: 12px; transform: scaleX(-1); }
+
+    .poster-content {
+      position: relative;
+      z-index: 2;
+      padding: 36px 32px 24px;
+    }
+
+    /* Decorative vines area */
+    .vines-top {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .save-the-date {
+      font-family: 'Dancing Script', cursive;
+      font-size: 26px;
+      font-weight: 600;
+      color: #3d2c2a;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .date-big {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      color: #3d2c2a;
+      margin-bottom: 4px;
+    }
+
+    .date-month {
+      font-size: 18px;
+      font-weight: 600;
+      color: #3d2c2a;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .date-time {
+      font-size: 15px;
+      color: #4a3836;
+      margin-bottom: 20px;
+    }
+
+    /* Ornate divider */
+    .divider {
+      margin: 18px auto;
+      width: 200px;
+      height: 24px;
+    }
+
+    .for-wedding {
+      font-size: 14px;
+      color: #4a3836;
+      margin: 16px 0 12px;
+      letter-spacing: 1px;
+    }
+
+    .names {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #3d2c2a;
+      margin: 4px 0;
+      letter-spacing: 1px;
+    }
+
+    .ampersand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: #4a3836;
+      margin: 2px 0;
+    }
+
+    .venue-section {
+      margin-top: 20px;
+      padding-top: 16px;
+    }
+
+    .venue-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #3d2c2a;
+      line-height: 1.5;
+    }
+
+    .venue-place {
+      font-size: 13px;
+      color: #5a4846;
+      margin-top: 2px;
+    }
+
+    .venue-link {
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
+    }
+
+    /* Lotus flowers - bottom corners */
+    .lotus-left {
+      position: absolute;
+      bottom: 8px;
+      left: 12px;
+      width: 80px;
+      height: 70px;
+      opacity: 0.9;
+      z-index: 1;
+    }
+
+    .lotus-right {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      width: 80px;
+      height: 70px;
+      opacity: 0.9;
+      transform: scaleX(-1);
+      z-index: 1;
+    }
+
+    .butterfly {
+      position: absolute;
+      bottom: 55px;
+      right: 85px;
+      width: 22px;
+      height: 20px;
+      opacity: 0.75;
+      z-index: 1;
+    }
+
+    /* Couple illustration area */
+    .couple-section {
+      margin-top: 16px;
+      padding-top: 12px;
+      min-height: 120px;
+    }
+
+    .couple-img {
+      max-width: 140px;
+      max-height: 120px;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
+    .couple-placeholder {
+      width: 140px;
+      height: 100px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(212,175,140,0.2) 0%, rgba(232,213,196,0.15) 100%);
+      border: 1px dashed rgba(163,127,95,0.35);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(61,44,42,0.5);
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .poster-actions, .no-print { display: none !important; }
+      .poster {
+        box-shadow: none;
+        max-width: 100%;
+        aspect-ratio: auto;
+        min-height: 100vh;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .poster { max-width: 100%; padding: 0; }
+      .date-big { font-size: 56px; }
+      .names { font-size: 24px; }
+      .lotus-left, .lotus-right { width: 55px; height: 50px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster-actions no-print">
+    <button class="poster-btn" id="downloadBtn" onclick="downloadPoster()">
+      <i class="fa fa-download"></i> Download as Image
+    </button>
+    <button class="poster-btn" onclick="window.print()">
+      <i class="fa fa-print"></i> Print
+    </button>
+  </div>
+
+  <div class="poster-wrapper" id="posterTarget">
+    <div class="poster">
+      <div class="poster-frame">
+        <div class="frame-border"></div>
+        <div class="frame-arch"></div>
+        <svg class="vine-side vine-left" viewBox="0 0 50 140">
+          <path d="M25 0 Q10 20 20 40 Q5 55 25 70 Q40 85 30 100 Q15 115 25 140" stroke="#8b6914" stroke-width="1.2" fill="none"/>
+          <path d="M22 35 Q18 45 22 55" stroke="#7d9a6e" stroke-width="1" fill="none"/>
+          <ellipse cx="22" cy="55" rx="4" ry="6" fill="#7d9a6e" opacity="0.8"/>
+          <path d="M28 60 Q32 50 28 40" stroke="#7d9a6e" stroke-width="1" fill="none"/>
+          <circle cx="28" cy="40" r="3" fill="#f5e6c8"/>
+          <path d="M18 80 Q14 88 18 95" stroke="#7d9a6e" stroke-width="1" fill="none"/>
+          <ellipse cx="18" cy="95" rx="3" ry="5" fill="#7d9a6e" opacity="0.8"/>
+        </svg>
+        <svg class="vine-side vine-right" viewBox="0 0 50 140">
+          <path d="M25 0 Q10 20 20 40 Q5 55 25 70 Q40 85 30 100 Q15 115 25 140" stroke="#8b6914" stroke-width="1.2" fill="none"/>
+          <path d="M22 35 Q18 45 22 55" stroke="#7d9a6e" stroke-width="1" fill="none"/>
+          <ellipse cx="22" cy="55" rx="4" ry="6" fill="#7d9a6e" opacity="0.8"/>
+          <path d="M28 60 Q32 50 28 40" stroke="#7d9a6e" stroke-width="1" fill="none"/>
+          <circle cx="28" cy="40" r="3" fill="#f5e6c8"/>
+          <path d="M18 80 Q14 88 18 95" stroke="#7d9a6e" stroke-width="1" fill="none"/>
+          <ellipse cx="18" cy="95" rx="3" ry="5" fill="#7d9a6e" opacity="0.8"/>
+        </svg>
+      </div>
+
+      <!-- Lotus flowers -->
+      <svg class="lotus-left" viewBox="0 0 80 70" fill="none">
+        <path d="M40 50 Q20 45 25 30 Q30 20 40 25 Q50 20 55 30 Q60 45 40 50" fill="#e8c4c4" opacity="0.95"/>
+        <path d="M40 45 Q15 38 22 18 Q28 8 40 15 Q52 8 58 18 Q65 38 40 45" fill="#f0d8d8"/>
+        <path d="M20 55 L35 50 L30 65 Z" fill="#7d9a6e"/>
+        <path d="M60 55 L45 50 L50 65 Z" fill="#7d9a6e"/>
+        <path d="M15 48 L28 45 L25 58 Z" fill="#8fa87a"/>
+        <path d="M65 48 L52 45 L55 58 Z" fill="#8fa87a"/>
+        <ellipse cx="40" cy="28" rx="8" ry="6" fill="#f5e6e6"/>
+      </svg>
+      <svg class="butterfly" viewBox="0 0 24 20" fill="none">
+        <path d="M12 4 C8 8 4 12 12 16 C20 12 16 8 12 4" fill="#8fa87a" opacity="0.9"/>
+        <path d="M12 6 C10 10 10 14 12 16" stroke="#7d9a6e" stroke-width="0.5" fill="none"/>
+        <circle cx="12" cy="10" r="1.5" fill="#3d2c2a"/>
+      </svg>
+      <svg class="lotus-right" viewBox="0 0 80 70" fill="none">
+        <path d="M40 50 Q20 45 25 30 Q30 20 40 25 Q50 20 55 30 Q60 45 40 50" fill="#e8c4c4" opacity="0.95"/>
+        <path d="M40 45 Q15 38 22 18 Q28 8 40 15 Q52 8 58 18 Q65 38 40 45" fill="#f0d8d8"/>
+        <path d="M20 55 L35 50 L30 65 Z" fill="#7d9a6e"/>
+        <path d="M60 55 L45 50 L50 65 Z" fill="#7d9a6e"/>
+        <path d="M15 48 L28 45 L25 58 Z" fill="#8fa87a"/>
+        <path d="M65 48 L52 45 L55 58 Z" fill="#8fa87a"/>
+        <ellipse cx="40" cy="28" rx="8" ry="6" fill="#f5e6e6"/>
+      </svg>
+
+      <div class="poster-content">
+        <p class="save-the-date">Save the date</p>
+        <div class="date-big">19 & 20</div>
+        <div class="date-month">February, 2026</div>
+        <div class="date-time">Reception: Thu 7:00 PM · Muhurat: Fri 9:45 AM</div>
+
+        <!-- Ornate divider SVG -->
+        <svg class="divider" viewBox="0 0 200 24" preserveAspectRatio="xMidYMid meet">
+          <path d="M0 12 Q20 8 40 12 Q60 16 80 12 Q100 8 120 12 Q140 16 160 12 Q180 8 200 12" stroke="#3d2c2a" stroke-width="1.5" fill="none"/>
+          <path d="M0 14 Q20 18 40 14 Q60 10 80 14 Q100 18 120 14 Q140 10 160 14 Q180 18 200 14" stroke="#3d2c2a" stroke-width="1.5" fill="none"/>
+          <circle cx="40" cy="12" r="3" fill="#3d2c2a"/>
+          <circle cx="100" cy="12" r="3" fill="#3d2c2a"/>
+          <circle cx="160" cy="12" r="3" fill="#3d2c2a"/>
+        </svg>
+
+        <p class="for-wedding">for the wedding of</p>
+        <div class="names">Guru Raghavendra R</div>
+        <div class="ampersand">&</div>
+        <div class="names">Pooja S</div>
+
+        <svg class="divider" viewBox="0 0 200 24" preserveAspectRatio="xMidYMid meet">
+          <path d="M0 12 Q20 8 40 12 Q60 16 80 12 Q100 8 120 12 Q140 16 160 12 Q180 8 200 12" stroke="#3d2c2a" stroke-width="1.5" fill="none"/>
+          <path d="M0 14 Q20 18 40 14 Q60 10 80 14 Q100 18 120 14 Q140 10 160 14 Q180 18 200 14" stroke="#3d2c2a" stroke-width="1.5" fill="none"/>
+          <circle cx="40" cy="12" r="3" fill="#3d2c2a"/>
+          <circle cx="100" cy="12" r="3" fill="#3d2c2a"/>
+          <circle cx="160" cy="12" r="3" fill="#3d2c2a"/>
+        </svg>
+
+        <div class="venue-section">
+          <a href="https://www.google.com/maps/place/Jain+Kalyana+Mantapa/@14.3137717,76.6495045,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb0bd2a5b3fe611:0x6fa56fcfb19d698f!8m2!3d14.3137665!4d76.6520794!16s%2Fg%2F11fp8t_f51?entry=ttu" target="_blank" class="venue-link">
+            <div class="venue-name">Jain Kalyana Mantapa</div>
+            <div class="venue-place">Challakere</div>
+          </a>
+        </div>
+
+        <div class="couple-section">
+          <!-- Replace src with your couple photo path, e.g. ./assets/img/couple.jpg -->
+          <img src="./assets/img/sonali.jpeg" alt="Guru Raghavendra & Pooja" class="couple-img" onerror="this.style.display='none'; var p=this.nextElementSibling; if(p) p.style.display='flex';">
+          <div class="couple-placeholder" style="display:none;">Your photo here</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    function downloadPoster() {
+      var btn = document.getElementById('downloadBtn');
+      if (btn) { btn.disabled = true; btn.innerHTML = ' Preparing...'; }
+      
+      var doCapture = function() {
+        html2canvas(document.getElementById('posterTarget'), {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: '#f5efe6',
+          logging: false,
+          imageTimeout: 0
+        }).then(function(canvas) {
+          var link = document.createElement('a');
+          link.download = 'Wedding-Invitation-Guru-Pooja.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fa fa-download"></i> Download as Image'; }
+        }).catch(function(err) {
+          console.error(err);
+          if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fa fa-download"></i> Download as Image'; }
+          alert('Download failed. Try using Print instead (Ctrl+P) and save as PDF.');
+        });
+      };
+      
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(doCapture);
+      } else {
+        setTimeout(doCapture, 500);
+      }
+    }
+  </script>
+</body>
+</html>

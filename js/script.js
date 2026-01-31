@@ -25,8 +25,8 @@ $(document).on('click', function(){
     console.log('Shaadi me zaroor aana');
 });
 
-// Set the date we're counting down to
-var countDownDate = new Date("Nov 29, 2024 00:00:00").getTime();
+// Set the date we're counting down to (Reception - 19 Feb 2026)
+var countDownDate = new Date("Feb 19, 2026 19:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -43,13 +43,13 @@ var x = setInterval(function() {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
-    // Output the result in an element with id="demo"
-    document.getElementById("time").innerHTML = "<div class='container'><div class='days block'>"+ days + "<br>Days</div>" + "<div class='hours block'>" + hours + "<br>Hours</div>" + "<div class='minutes block'>" + minutes + "<br>Minutes</div>" + "<div class='seconds block'>" + seconds + "<br>Seconds</div></div>";
+    // Output compact inline countdown
+    document.getElementById("time").innerHTML = "<span class='countdown-inline'><span class='cd-item'><strong>" + days + "</strong> days</span><span class='cd-sep'>·</span><span class='cd-item'><strong>" + hours + "</strong> hrs</span><span class='cd-sep'>·</span><span class='cd-item'><strong>" + minutes + "</strong> mins</span><span class='cd-sep'>·</span><span class='cd-item'><strong>" + seconds + "</strong> secs</span></span>";
     
     // If the count down is over, write some text 
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("time").innerHTML = "Bless the married couple for happy life!";
+        document.getElementById("time").innerHTML = "<span class='countdown-ended'>Bless the married couple for a happy life!</span>";
     }
 }, 1000);
 
@@ -85,9 +85,9 @@ var styles2 = [
     , 'font-size: 32px'
 ].join(';');
 
-console.log('\n\n%c SAVE THE DATE: 29th Nov, 2020!', styles);
+console.log('\n\n%c SAVE THE DATE: 19th & 20th Feb, 2026!', styles);
 
-console.log('%cYour presence is requested!%c\n\nRegards: Vinit Shahdeo', styles1, styles2);
+console.log('%cYour presence is requested!%c\n\nGuru Raghavendra & Pooja', styles1, styles2);
 
 console.log(
     `%cShaadi me zaroor aana!\n\n`,
