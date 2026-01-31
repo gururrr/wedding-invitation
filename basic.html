@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation | Guru Raghavendra & Pooja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a0a0f;
+      padding: 48px 24px;
+    }
+
+    .poster {
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 3/4;
+      background: linear-gradient(165deg, #25181c 0%, #3d2028 35%, #352228 70%, #2a1a20 100%);
+      border-radius: 12px;
+      padding: 52px 44px;
+      text-align: center;
+      color: #f5e6d3;
+      box-shadow: 
+        0 30px 70px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(212,175,55,0.15),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: 
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212,175,55,0.04) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(201,160,168,0.03) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .poster-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ornament {
+      width: 70px;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.7), transparent);
+      margin: 0 auto 28px;
+    }
+
+    .ornament-wide {
+      width: 100px;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.6), rgba(212,175,55,0.6), transparent);
+      margin: 28px auto;
+    }
+
+    .blessing {
+      font-size: 12px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(212,175,55,0.95);
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+
+    .names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 44px;
+      line-height: 1.2;
+      color: #f8efe8;
+      margin: 12px 0;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+      letter-spacing: 1px;
+    }
+
+    .ampersand {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      color: rgba(212,175,55,0.9);
+      margin: 4px 0 8px;
+    }
+
+    .invite-text {
+      font-size: 15px;
+      letter-spacing: 2px;
+      margin: 24px 0 28px;
+      color: rgba(232,213,196,0.95);
+      line-height: 1.6;
+    }
+
+    .events {
+      margin: 24px 0;
+    }
+
+    .event {
+      background: rgba(109, 90, 117, 0.25);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 10px 0;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .event-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 22px;
+      font-weight: 600;
+      color: rgba(212,175,55,0.95);
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .event-detail {
+      font-size: 14px;
+      color: rgba(232,213,196,0.9);
+      letter-spacing: 0.5px;
+    }
+
+    .venue-section {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .venue-title {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(212,175,55,0.8);
+      margin-bottom: 10px;
+    }
+
+    .venue-link {
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 600;
+      color: #f5e6d3;
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.5px;
+    }
+    .venue-link:hover {
+      color: #d4af37;
+    }
+
+    .footer-text {
+      margin-top: 32px;
+      font-size: 14px;
+      color: rgba(201,184,154,0.85);
+      font-style: italic;
+      letter-spacing: 0.5px;
+    }
+
+    @media print {
+      body { background: #1a0a0f; padding: 0; }
+      .poster { box-shadow: none; max-width: 100%; }
+    }
+
+    @media (max-width: 500px) {
+      .poster { padding: 40px 28px; }
+      .names { font-size: 36px; }
+      .event-name { font-size: 20px; }
+      .event-detail { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="poster">
+    <div class="poster-content">
+      <div class="ornament"></div>
+      <p class="blessing">With the blessings of our families</p>
+      
+      <div class="names">Guru Raghavendra R</div>
+      <div class="ampersand">&</div>
+      <div class="names">Pooja S</div>
+      
+      <div class="ornament-wide"></div>
+      <p class="invite-text">request the honour of your presence<br>at their wedding celebrations</p>
+      
+      <div class="events">
+        <div class="event">
+          <div class="event-name">Reception</div>
+          <div class="event-detail">19 February 2026 &nbsp;·&nbsp; Evening 7:00 onwards</div>
+        </div>
+        <div class="event">
+          <div class="event-name">Muhurat</div>
+          <div class="event-detail">20 February 2026 &nbsp;·&nbsp; Morning 9:45 – 10:30</div>
+        </div>
+      </div>
+      
+      <div class="venue-section">
+        <div class="venue-title">Venue</div>
+        <a href="https://www.google.com/maps/place/Jain+Kalyana+Mantapa/@14.3137717,76.6495045,17z/data=!3m1!4b1!4m6!3m5!1s0x3bb0bd2a5b3fe611:0x6fa56fcfb19d698f!8m2!3d14.3137665!4d76.6520794!16s%2Fg%2F11fp8t_f51?entry=ttu" target="_blank" class="venue-link">Jain Kalyana Mantapa<br>Challakere</a>
+      </div>
+      
+      <div class="ornament"></div>
+      <p class="footer-text">We look forward to celebrating with you</p>
+    </div>
+  </div>
+</body>
+</html>
