@@ -20,10 +20,18 @@
  * Listen here: https://youtu.be/X0MDALpV29s
  *
  */
-$(document).on('click', function(){
-    document.getElementById("my_audio").play();
-    console.log('Shaadi me zaroor aana');
-});
+// Start audio and hide overlay
+function startAudio() {
+    var audio = document.getElementById("my_audio");
+    var overlay = document.getElementById("overlay");
+    
+    audio.play().then(function() {
+        overlay.classList.add('hidden');
+        console.log('Shaadi me zaroor aana');
+    }).catch(function(error) {
+        console.log('Play failed:', error);
+    });
+}
 
 // Set the date we're counting down to (Reception - 19 Feb 2026)
 var countDownDate = new Date("Feb 19, 2026 19:00:00 GMT+0530").getTime();
